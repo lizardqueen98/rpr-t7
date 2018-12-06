@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<drzava>
+
+<drzava stanovnika="3500000">
+    <naziv>Bosna i Hercegovina</naziv>
+    <glavnigrad stanovnika="400000">
+        <naziv>Sarajevo</naziv>
+    </glavnigrad>
+    <povrsina>51129</povrsina>
+    <moneta naziv="KM" />
+</drzava>
+
+<drzava stanovnika="3500000">
+    <naziv>Hrvatska</naziv>
+    <glavnigrad stanovnika="400000">
+        <naziv>Zagreb</naziv>
+    </glavnigrad>
+    <povrsina>51129</povrsina>
+    <moneta naziv="Kuna" />
+</drzava>
+
+    <drzava stanovnika="3500000">
+        <naziv>Srbija</naziv>
+        <glavnigrad stanovnika="400000">
+            <naziv>Beograd</naziv>
+        </glavnigrad>
+        <povrsina>51129</povrsina>
+        <moneta naziv="Dinar" />
+    </drzava>
+
+</drzava>

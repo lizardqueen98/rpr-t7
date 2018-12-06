@@ -1,6 +1,10 @@
 package ba.unsa.etf.rpr.tut7;
 
-import javax.swing.text.Document;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
@@ -49,7 +53,23 @@ public class Tutorijal {
         } catch (Exception e) {
             System.out.println("drzava.xml nije validan XML dokument");
         }
+        try{
+            NodeList djeca = xmldoc.getElementsByTagName("drzava");
+            for(int i = 0; i < djeca.getLength(); i++) {
+                Node dijete = djeca.item(i);
+                if (dijete instanceof Element) {
+                    Element e = (Element) dijete;
+                    String naziv;
+                    int brojStanovnika;
+                    double povrsina;
+                    String jedinicaZaPovrsinu;
+                    Grad g = new Grad();
+                    naziv=e.getElementsByTagName("naziv").item(0).getTextContent();
+                    brojStanovnika=Integer.parseInt(e.getAttribute("stanovnika"));
+                }
+            }
 
+        }
 
     }
 }
