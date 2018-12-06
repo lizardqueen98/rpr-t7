@@ -4,7 +4,7 @@ public class Grad {
     private String naziv;
     private int brojStanovnika;
     private double[] temperature;
-
+    public Grad(){}
     public int getBrojStanovnika() {
         return brojStanovnika;
     }

@@ -7,8 +7,10 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,6 +20,7 @@ public class Tutorijal {
     public static void main(String[] args){
         ArrayList<Grad> lista = ucitajGradove();
         UN un = ucitajXml(lista);
+        zapisiXml(un);
 
         for(int i=0; i<un.getDrzave().size(); i++)
         {
@@ -38,8 +41,6 @@ public class Tutorijal {
             }
             System.out.println("");
         }
-
-
     }
     public static ArrayList<Grad> ucitajGradove(){
         Scanner ulaz=null;
@@ -115,5 +116,16 @@ public class Tutorijal {
             }
         un.setDrzave(drzave);
             return un;
+    }
+    public static void zapisiXml(UN un){
+        try {
+            XMLEncoder izlaz = new XMLEncoder(new FileOutputStream("un.xml"));
+            izlaz.writeObject(un);
+            //mora se zatvoriti obavezno
+            izlaz.close();
+        }
+        catch(FileNotFoundException e){
+
+        }
     }
 }

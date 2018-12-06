@@ -9,7 +9,9 @@ public class Drzava implements Serializable {
     private String jedinicaZaPovrsinu;
     private Grad g;
 
-
+    public Drzava(){
+        g=new Grad();
+    }
     public int getBrojStanovnika() {
         return brojStanovnika;
     }
