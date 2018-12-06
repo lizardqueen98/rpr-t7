@@ -22,6 +22,30 @@ public class Tutorijal {
             System.out.println(it.next().getNaziv());
         }
 
+        ArrayList<Grad> ar_gr = ucitajGradove();
+        UN un = ucitajXml(ar_gr);
+
+        for(int i=0; i<un.getDrzave().size(); i++)
+        {
+            System.out.println("naziv drzave: "+ un.getDrzave().get(i).getNaziv() );
+            System.out.println("broj stanovnika drzave: "+ un.getDrzave().get(i).getBrojStanovnika() );
+            System.out.println("jedinica za povrsinu: "+ un.getDrzave().get(i).getJedinicaZaPovrsinu() );
+            System.out.println("povrsina: "+ un.getDrzave().get(i).getPovrsina() );
+            System.out.println("glavni grad: "+ un.getDrzave().get(i).getG().getNaziv() );
+
+            System.out.print("Temperature: ");
+            for(int j=0; j<1000; j++)
+            {
+                if(un.getDrzave().get(i).getG().getTemperature()[j]!=0)
+                {
+                    System.out.print(un.getDrzave().get(i).getG().getTemperature()[j]+" ");
+                }
+
+            }
+            System.out.println("");
+        }
+
+
     }
     public static ArrayList<Grad> ucitajGradove(){
         Scanner ulaz=null;
@@ -44,7 +68,7 @@ public class Tutorijal {
         }
         return gradovi;
     }
-    public static UN ucitajXml(ArrayList<Grad>){
+    public static UN ucitajXml(ArrayList<Grad> listaGradova){
         Document xmldoc = null;
         try {
             DocumentBuilder docReader
@@ -53,23 +77,43 @@ public class Tutorijal {
         } catch (Exception e) {
             System.out.println("drzava.xml nije validan XML dokument");
         }
-        try{
+        UN un = new UN();
+        ArrayList<Drzava> drzave=new ArrayList<>();
             NodeList djeca = xmldoc.getElementsByTagName("drzava");
             for(int i = 0; i < djeca.getLength(); i++) {
                 Node dijete = djeca.item(i);
                 if (dijete instanceof Element) {
                     Element e = (Element) dijete;
+                    Drzava drzava =new Drzava();
                     String naziv;
                     int brojStanovnika;
                     double povrsina;
                     String jedinicaZaPovrsinu;
                     Grad g = new Grad();
+                    brojStanovnika = Integer.parseInt(e.getAttribute("stanovnika"));
                     naziv=e.getElementsByTagName("naziv").item(0).getTextContent();
-                    brojStanovnika=Integer.parseInt(e.getAttribute("stanovnika"));
+                    povrsina=Double.parseDouble(e.getElementsByTagName("povrsina").item(0).getTextContent());
+                    jedinicaZaPovrsinu=e.getAttribute("jedinica");
+                    NodeList gradovi = e.getElementsByTagName("glavnigrad");
+                    Node grad=gradovi.item(0);
+                    if(grad instanceof Element){
+                        Element element = (Element) grad;
+                        String ime;
+                        int brStan;
+                        ime=element.getElementsByTagName("naziv").item(0).getTextContent();
+                        brStan=Integer.parseInt(element.getAttribute("stanovnika"));
+                        g.setBrojStanovnika(brStan);
+                        g.setNaziv(ime);
+                    }
+                    drzava.setNaziv(naziv);
+                    drzava.setBrojStanovnika(brojStanovnika);
+                    drzava.setG(g);
+                    drzava.setJedinicaZaPovrsinu(jedinicaZaPovrsinu);
+                    drzava.setPovrsina(povrsina);
+                    drzave.add(drzava);
                 }
             }
-
-        }
-
+        un.setDrzave(drzave);
+            return un;
     }
 }

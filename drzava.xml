@@ -6,7 +6,7 @@
     <glavnigrad stanovnika="400000">
         <naziv>Sarajevo</naziv>
     </glavnigrad>
-    <povrsina>51129</povrsina>
+    <povrsina jedinica="km2">51129</povrsina>
     <moneta naziv="KM" />
 </drzava>
 
@@ -15,7 +15,7 @@
     <glavnigrad stanovnika="400000">
         <naziv>Zagreb</naziv>
     </glavnigrad>
-    <povrsina>51129</povrsina>
+    <povrsina jedinica="km2">51129</povrsina>
     <moneta naziv="Kuna" />
 </drzava>
 
@@ -24,7 +24,7 @@
         <glavnigrad stanovnika="400000">
             <naziv>Beograd</naziv>
         </glavnigrad>
-        <povrsina>51129</povrsina>
+        <povrsina jedinica="km2">51129</povrsina>
         <moneta naziv="Dinar" />
     </drzava>
 
