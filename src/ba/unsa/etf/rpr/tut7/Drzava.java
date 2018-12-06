@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.tut7;
 
-public class Drzava {
+import java.io.Serializable;
+
+public class Drzava implements Serializable {
     private String naziv;
     private int brojStanovnika;
     private double povrsina;
