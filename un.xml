@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_191" class="java.beans.XMLDecoder">
+ <object class="ba.unsa.etf.rpr.tut7.UN" id="UN0">
+  <void property="drzave">
+   <void method="add">
+    <object class="ba.unsa.etf.rpr.tut7.Drzava" id="Drzava0">
+     <void property="brojStanovnika">
+      <int>3500000</int>
+     </void>
+     <void property="g">
+      <void property="brojStanovnika">
+       <int>400000</int>
+      </void>
+      <void property="naziv">
+       <string>Sarajevo</string>
+      </void>
+      <void property="temperature">
+       <array class="double" length="1000">
+        <void index="0">
+         <double>5.4</double>
+        </void>
+        <void index="1">
+         <double>15.8</double>
+        </void>
+        <void index="2">
+         <double>2.3</double>
+        </void>
+        <void index="3">
+         <double>0.44</double>
+        </void>
+        <void index="4">
+         <double>-1.1</double>
+        </void>
+       </array>
+      </void>
+     </void>
+     <void property="jedinicaZaPovrsinu">
+      <string>km2</string>
+     </void>
+     <void property="naziv">
+      <string>Bosna i Hercegovina</string>
+     </void>
+     <void property="povrsina">
+      <double>51129.0</double>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ba.unsa.etf.rpr.tut7.Drzava" id="Drzava1">
+     <void property="brojStanovnika">
+      <int>3500000</int>
+     </void>
+     <void property="g">
+      <void property="brojStanovnika">
+       <int>400000</int>
+      </void>
+      <void property="naziv">
+       <string>Zagreb</string>
+      </void>
+      <void property="temperature">
+       <array class="double" length="1000">
+        <void index="0">
+         <double>8.7</double>
+        </void>
+        <void index="1">
+         <double>20.1</double>
+        </void>
+        <void index="2">
+         <double>5.6</double>
+        </void>
+        <void index="3">
+         <double>4.3</double>
+        </void>
+        <void index="4">
+         <double>2.2</double>
+        </void>
+        <void index="5">
+         <double>1.1</double>
+        </void>
+        <void index="6">
+         <double>-2.2</double>
+        </void>
+        <void index="7">
+         <double>-8.777</double>
+        </void>
+       </array>
+      </void>
+     </void>
+     <void property="jedinicaZaPovrsinu">
+      <string>km2</string>
+     </void>
+     <void property="naziv">
+      <string>Hrvatska</string>
+     </void>
+     <void property="povrsina">
+      <double>51129.0</double>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ba.unsa.etf.rpr.tut7.Drzava" id="Drzava2">
+     <void property="brojStanovnika">
+      <int>3500000</int>
+     </void>
+     <void property="g">
+      <void property="brojStanovnika">
+       <int>400000</int>
+      </void>
+      <void property="naziv">
+       <string>Beograd</string>
+      </void>
+      <void property="temperature">
+       <array class="double" length="1000">
+        <void index="0">
+         <double>3.0</double>
+        </void>
+        <void index="1">
+         <double>6.6</double>
+        </void>
+        <void index="2">
+         <double>19.0</double>
+        </void>
+        <void index="3">
+         <double>15.7</double>
+        </void>
+        <void index="4">
+         <double>7.0</double>
+        </void>
+       </array>
+      </void>
+     </void>
+     <void property="jedinicaZaPovrsinu">
+      <string>km2</string>
+     </void>
+     <void property="naziv">
+      <string>Srbija</string>
+     </void>
+     <void property="povrsina">
+      <double>51129.0</double>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
