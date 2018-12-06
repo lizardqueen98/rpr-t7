@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<drzava>
+<drzave>
 
 <drzava stanovnika="3500000">
     <naziv>Bosna i Hercegovina</naziv>
@@ -28,4 +28,4 @@
         <moneta naziv="Dinar" />
     </drzava>
 
-</drzava>
+</drzave>

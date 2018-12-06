@@ -16,22 +16,16 @@ import java.util.Scanner;
 
 public class Tutorijal {
     public static void main(String[] args){
-        ArrayList<Grad> gradovi=ucitajGradove();
-        Iterator<Grad> it=gradovi.iterator();
-        while(it.hasNext()){
-            System.out.println(it.next().getNaziv());
-        }
-
-        ArrayList<Grad> ar_gr = ucitajGradove();
-        UN un = ucitajXml(ar_gr);
+        ArrayList<Grad> lista = ucitajGradove();
+        UN un = ucitajXml(lista);
 
         for(int i=0; i<un.getDrzave().size(); i++)
         {
-            System.out.println("naziv drzave: "+ un.getDrzave().get(i).getNaziv() );
-            System.out.println("broj stanovnika drzave: "+ un.getDrzave().get(i).getBrojStanovnika() );
-            System.out.println("jedinica za povrsinu: "+ un.getDrzave().get(i).getJedinicaZaPovrsinu() );
-            System.out.println("povrsina: "+ un.getDrzave().get(i).getPovrsina() );
-            System.out.println("glavni grad: "+ un.getDrzave().get(i).getG().getNaziv() );
+            System.out.println("Ime drzave: "+ un.getDrzave().get(i).getNaziv() );
+            System.out.println("Broj stanovnika drzave: "+ un.getDrzave().get(i).getBrojStanovnika() );
+            System.out.println("Povrsina: "+ un.getDrzave().get(i).getPovrsina() );
+            System.out.println("Jedinica za povrsinu: "+ un.getDrzave().get(i).getJedinicaZaPovrsinu() );
+            System.out.println("Glavni grad: "+ un.getDrzave().get(i).getG().getNaziv() );
 
             System.out.print("Temperature: ");
             for(int j=0; j<1000; j++)
@@ -85,17 +79,19 @@ public class Tutorijal {
                 if (dijete instanceof Element) {
                     Element e = (Element) dijete;
                     Drzava drzava =new Drzava();
+                    Grad g = new Grad();
                     String naziv;
                     int brojStanovnika;
                     double povrsina;
                     String jedinicaZaPovrsinu;
-                    Grad g = new Grad();
+                    Element povrs=null;
                     brojStanovnika = Integer.parseInt(e.getAttribute("stanovnika"));
                     naziv=e.getElementsByTagName("naziv").item(0).getTextContent();
-                    povrsina=Double.parseDouble(e.getElementsByTagName("povrsina").item(0).getTextContent());
-                    jedinicaZaPovrsinu=e.getAttribute("jedinica");
-                    NodeList gradovi = e.getElementsByTagName("glavnigrad");
-                    Node grad=gradovi.item(0);
+                    Node jedinica=e.getElementsByTagName("povrsina").item(0);
+                    if(jedinica instanceof Element) povrs = (Element) jedinica;
+                    jedinicaZaPovrsinu=povrs.getAttribute("jedinica");
+                    povrsina=Double.parseDouble(povrs.getTextContent());
+                    Node grad=e.getElementsByTagName("glavnigrad").item(0);
                     if(grad instanceof Element){
                         Element element = (Element) grad;
                         String ime;
@@ -104,6 +100,10 @@ public class Tutorijal {
                         brStan=Integer.parseInt(element.getAttribute("stanovnika"));
                         g.setBrojStanovnika(brStan);
                         g.setNaziv(ime);
+                        Iterator<Grad> it=listaGradova.iterator();
+                        for(Grad grd:listaGradova){
+                            if(grd.getNaziv().equals(ime)) g.setTemperature(grd.getTemperature());
+                        }
                     }
                     drzava.setNaziv(naziv);
                     drzava.setBrojStanovnika(brojStanovnika);
