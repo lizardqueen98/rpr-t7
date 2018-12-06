@@ -10,13 +10,14 @@ public class Tutorijal {
 
     }
     public static ArrayList<Grad> ucitajGradove(){
-        Scanner ulaz;
+        Scanner ulaz=null;
         try{
             ulaz = new Scanner(new FileReader("mjerenja.txt"));
         }catch(FileNotFoundException e){
             System.out.println("Datoteka se ne moze otvoriti.");
         }
-        ArrayList<Grad> gradovi;
+        ArrayList<Grad> gradovi=null;
+        Grad g=null;
         while(ulaz.hasNext()){
 
         }
